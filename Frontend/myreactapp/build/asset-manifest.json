@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dynamisk-Webbsida/static/css/main.c0d1ea39.css",
+    "main.js": "/Dynamisk-Webbsida/static/js/main.428250a8.js",
+    "static/js/488.e75445ad.chunk.js": "/Dynamisk-Webbsida/static/js/488.e75445ad.chunk.js",
+    "index.html": "/Dynamisk-Webbsida/index.html",
+    "main.c0d1ea39.css.map": "/Dynamisk-Webbsida/static/css/main.c0d1ea39.css.map",
+    "main.428250a8.js.map": "/Dynamisk-Webbsida/static/js/main.428250a8.js.map",
+    "488.e75445ad.chunk.js.map": "/Dynamisk-Webbsida/static/js/488.e75445ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0d1ea39.css",
+    "static/js/main.428250a8.js"
+  ]
+}

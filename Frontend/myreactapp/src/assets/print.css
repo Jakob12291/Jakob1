@@ -1,0 +1,14 @@
+@media print {
+    nav, footer {
+        display: none;
+    }
+
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .project {
+        page-break-inside: avoid;
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "education": [
+      {
+        "title": "Webbutveckling",
+        "institution": "XYZ Universitet",
+        "years": "2020-2023"
+      },
+      {
+        "title": "Datavetenskap",
+        "institution": "ABC Högskola",
+        "years": "2018-2020"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Webbutvecklare",
+        "company": "DEF Företag",
+        "years": "2021-2023"
+      },
+      {
+        "title": "Praktikant",
+        "company": "GHI Företag",
+        "years": "2020"
+      }
+    ]
+  }
+  

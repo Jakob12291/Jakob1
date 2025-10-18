@@ -1,0 +1,762 @@
+/* Generella stilar */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+img {
+    max-width: 364px;
+    max-height: 1000%; 
+    border-radius: 20px;
+    display: block; 
+    margin: 1 auto;
+}
+
+/* Navigering */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.hamburger {
+    display: none; /* Dölj hamburgarikonen som standard */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff9800;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    color: #ff9800;
+}
+
+/* Sidhuvud */
+header {
+    background: linear-gradient(135deg, #444, #666);
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Huvudinnehåll */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Portfoliosektion */
+.portfolio-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures page takes up full viewport height */
+}
+
+.portfolio-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 60px; /* Prevents overlap with footer */
+}
+
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Prevent Footer Overlap */
+.portfolio-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: auto;
+    position: relative;
+}
+
+/* Modal Styles */
+.portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.portfolio-hover-modal {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2001;
+}
+
+.portfolio-close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+}
+
+.project {
+    background-color: #fff;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    width: calc(40% - 40px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto;
+    object-fit: cover; /* Se till att bilderna fyller sina behållare snyggt */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidfot */
+/* Sidfot */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+/* Struktur för About-sidan */
+.about-page {
+    display: flex;
+    flex-direction: column;
+}
+
+/* About-container innehåller både main och aside */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Main innehållet (gör att footern alltid ligger under det) */
+.about-page main {
+    position: relative; /* Gör footern relativ till innehållet här */
+    width: 100%;
+    z-index: 1;
+}
+
+/* Aside hamnar bredvid main i desktop, under i mobil */
+.about-page aside {
+    flex: 1;
+    max-width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bild och text under bilden */
+.about-page main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+.about-page .aboutText {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.about-page footer {
+    position: relative;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; 
+}
+
+.about-page nav {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 9999;
+}
+
+.about-page nav ul {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    z-index: 9999; 
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+
+.about-page nav ul.active {
+    position: fixed; 
+    z-index: 9999;   
+    width: 100%; 
+    left: 0;
+    background-color: #444;
+}
+
+
+.about-page .hamburger {
+    position: relative;
+    z-index: 10000; 
+    display: block;
+}
+
+
+
+/* Modal (pop-up) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hover-modal {
+    position: fixed;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+}
+  
+
+  .project:hover .hover-modal {
+    opacity: 1;
+  }
+  
+  .info-button {
+    position: relative;
+    cursor: pointer;
+  }
+
+/* Om-sida */
+.about-page .about-container {
+   
+    position: relative;
+    z-index: 1;  
+  }
+
+.about-page main {
+    flex: 2;
+}
+
+.about-page main section {
+    position: relative;
+    z-index: 0; 
+    pointer-events: none; 
+}
+
+.about-page aside {
+    flex: 1;
+    max-width: 250px;
+    max-height: 3000px;
+    overflow: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-page main img {
+    position: relative;
+    z-index: 1; 
+}
+
+.about-page main .aboutText {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/*Kontakt - sidan*/
+.contactText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    height: 60vh; 
+    font-family: 'Arial', sans-serif;
+}
+
+
+.contact-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; 
+    flex-direction: column;
+}
+
+.contactText h2 {
+    font-size: 2.5rem; /* Gör rubriken tydligare */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333; /* Mörkare ton för bättre kontrast */
+}
+
+.contactText p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    width: 90%;
+    line-height: 1.6;
+    color: #444; /* Lätt mörkgrå för bättre kontrast */
+}
+
+
+.contactText a {
+    color: #ff9800; /* Matchar designen */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contactText a:hover {
+    text-decoration: underline;
+}
+
+/*Hem-Sidan*/
+.homeText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 15px; /* Skapar mellanrum mellan elementen */
+}
+
+
+.homeText h2 {
+    font-size: 2.5rem; /* Större rubrik */
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700;
+    color: #333;
+}
+
+.homeText h3 {
+    font-size: 1.8rem; /* Underrubrik */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #444;
+}
+
+.homeText p {
+    font-size: 1.2rem; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #555;
+    max-width: 700px;
+    line-height: 1.6; /* Ger bättre läsbarhet */
+}
+
+
+.home-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+/*CV - Sidan*/
+
+.cvText ul {
+    list-style-position: inside;
+    padding-left: 0;
+    text-align: center;
+    display: inline-block;
+}
+
+.cv-page {
+    text-align: center;
+    padding: 0px;
+}
+
+.cv-section {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.cv-section h2 {
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 10px;
+    color: #ff9800;
+}
+
+.cv-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cv-section li {
+    margin-bottom: 15px;
+}
+
+.cv-section h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.cv-section p {
+    margin: 5px 0;
+}
+
+/* CV-sidans header */
+.cv-page header {
+    background: linear-gradient(135deg, #444, #666);
+    color: white;
+    padding: 20px 0; 
+    margin: 0; 
+    text-align: center;
+    font-size: 2rem; 
+    font-weight: bold;
+    width: 100%; /* Säkerställ att headern fyller hela bredden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project {
+    position: relative; /* Viktigt för att modal ska ligga inom denna */
+    width: 250px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+}
+
+.project img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info-button {
+    background-color: #f4a261;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.info-button:hover {
+    background-color: #e76f51;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+  }
+  
+
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #444;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0;
+        opacity: 0;
+        transform: translateY(-20px); 
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul.active {
+        opacity: 1; 
+        transform: translateY(0); 
+        max-height: 300px; 
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container.active + * { 
+        margin-top: 200px; 
+        transition: margin-top 0.3s ease-in-out;
+    }
+
+    .project {
+        width: calc(50% - 20px);
+    }
+
+    .about-page .about-container {
+        flex-direction: column;
+    }
+
+    .about-page aside {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .project-link {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .project {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .project:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .project {
+        width: 100%;
+    }
+}
+
+@media (min-width: 365px) {
+    .project img {
+        width: 364px;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+/* Mobil Responsive Fix */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .about-page aside {
+        max-width: 100%; 
+        text-align: center;
+        margin-top: 20px; 
+    }
+}
+
+
+
+}
