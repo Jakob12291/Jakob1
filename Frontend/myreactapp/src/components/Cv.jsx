@@ -1,23 +1,57 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import "../assets/styles.css"; // Ser till att stilen laddas in
+import "../assets/styles.css";
+
+const jsonUrl = `${process.env.PUBLIC_URL || ""}/cv-data.json`;
 
 function Cv() {
   const [cvData, setCvData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/cv")
-      .then((response) => {
-        setCvData(response.data);
+    let cancelled = false;
+    fetch(jsonUrl)
+      .then((res) => {
+        if (!res.ok) throw new Error("Kunde inte läsa CV-data.");
+        return res.json();
       })
-      .catch((err) => {
-        setError("Misslyckades att ladda CV-data.");
+      .then((data) => {
+        if (!cancelled) setCvData(data);
+      })
+      .catch(() => {
+        if (!cancelled) setError("Misslyckades att ladda CV-data (cv-data.json).");
       });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  if (error) return <p>{error}</p>;
-  if (!cvData) return <p>Laddar...</p>;
+  if (error) {
+    return (
+      <div className="cv-page">
+        <header>
+          <h1>CV</h1>
+        </header>
+        <main>
+          <p role="alert">{error}</p>
+        </main>
+      </div>
+    );
+  }
+
+  if (!cvData) {
+    return (
+      <div className="cv-page">
+        <header>
+          <h1>CV</h1>
+        </header>
+        <main>
+          <p className="loading-hint" aria-live="polite">
+            Laddar CV från cv-data.json …
+          </p>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="cv-page">
@@ -28,12 +62,17 @@ function Cv() {
       <main>
         <section className="cv-section">
           <h2>Utbildning</h2>
-          <ul>
+          <ul className="cv-json-list">
             {cvData.education.map((edu, index) => (
               <li key={index}>
                 <h3>{edu.title}</h3>
-                <p><strong>Institution:</strong> {edu.institution}</p>
-                <p><strong>År:</strong> {edu.years}</p>
+                <p>
+                  <strong>Institution:</strong> {edu.institution}
+                </p>
+                <p>
+                  <strong>År:</strong> {edu.years}
+                </p>
+                {edu.details ? <p>{edu.details}</p> : null}
               </li>
             ))}
           </ul>
@@ -41,12 +80,19 @@ function Cv() {
 
         <section className="cv-section">
           <h2>Arbetslivserfarenhet</h2>
-          <ul>
+          <ul className="cv-json-list">
             {cvData.experience.map((exp, index) => (
               <li key={index}>
                 <h3>{exp.title}</h3>
-                <p><strong>Företag:</strong> {exp.company}</p>
-                <p><strong>År:</strong> {exp.years}</p>
+                <p>
+                  <strong>Företag / plats:</strong> {exp.company}
+                </p>
+                {exp.years ? (
+                  <p>
+                    <strong>År:</strong> {exp.years}
+                  </p>
+                ) : null}
+                {exp.details ? <p>{exp.details}</p> : null}
               </li>
             ))}
           </ul>
@@ -54,7 +100,7 @@ function Cv() {
       </main>
 
       <footer>
-        <p>&copy; 2025 Mitt CV</p>
+        <p>&copy; {new Date().getFullYear()} Jakob Daoud</p>
       </footer>
     </div>
   );

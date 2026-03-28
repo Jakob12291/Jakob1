@@ -742,21 +742,144 @@ footer {
         margin: 0 auto;
         padding: 0 20px;
     }
+}
 
 /* Mobil Responsive Fix */
 @media (max-width: 768px) {
     .about-container {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 
     .about-page aside {
-        max-width: 100%; 
+        max-width: 100%;
         text-align: center;
-        margin-top: 20px; 
+        margin-top: 20px;
     }
 }
 
+/* Lab 2: logo-knapp, leet-modal, portfolio-laddning */
+.logo-button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+}
 
+.leet-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
 
+.leet-box {
+    position: relative;
+    background: #fff;
+    color: #333;
+    padding: 1.75rem 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.leet-close {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.portfolio-lead {
+    text-align: center;
+    margin: 0.5rem auto 1rem;
+    max-width: 640px;
+    color: #555;
+}
+
+.portfolio-loading {
+    max-width: 520px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.loading-title {
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+}
+
+.loading-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.portfolio-error {
+    text-align: center;
+    color: #a33;
+    max-width: 640px;
+    margin: 1rem auto;
+}
+
+.portfolio-block h2 {
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.project-thumb {
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.project-thumb--wide {
+    width: 100%;
+    max-height: 200px;
+}
+
+.project-desc {
+    text-align: center;
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    color: #444;
+    min-height: 2.5rem;
+}
+
+.project-link--static {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.loading-hint {
+    text-align: center;
+    padding: 2rem;
+}
+
+.cv-json-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-json-list li {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cv-json-list h3 {
+    margin-top: 0;
 }

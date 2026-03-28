@@ -1,0 +1,20 @@
+[
+  {
+    "id": "local-1",
+    "name": "Webbplats för lokal butik",
+    "description": "Skolprojekt: landningssida med öppettider och kontakt.",
+    "image": "project1.jpg"
+  },
+  {
+    "id": "local-2",
+    "name": "Restaurangfinder",
+    "description": "Prototyp för att söka och filtrera restauranger.",
+    "image": "project2.jpg"
+  },
+  {
+    "id": "local-3",
+    "name": "Enkel innehållsplattform",
+    "description": "Kort med innehåll och tydlig semantik.",
+    "image": "project3.jpg"
+  }
+]

@@ -1,10 +1,11 @@
-import React from 'react';
-import '../assets/styles.css';
+import React from "react";
+import "../assets/styles.css";
 
 function About() {
+  const profileSrc = `${process.env.PUBLIC_URL || ""}/profile.jpg`;
+
   return (
     <div className="about-page">
-
       <header>
         <h1>Om mig</h1>
       </header>
@@ -13,35 +14,35 @@ function About() {
         <main>
           <section>
             <h2>Hej, jag heter Jakob Daoud</h2>
-            <img src="/profile.jpg" alt="Profilbild" />
+            <img src={profileSrc} alt="Profilbild" />
             <p className="aboutText">
-              Jag är 23 år och en passionerad utvecklare. 
-              Jag älskar att skapa webbplatser.
+              Jag är intresserad av webbutveckling och att bygga sidor som fungerar bra på
+              olika skärmar.
             </p>
           </section>
         </main>
 
         <aside>
-          <h2>info</h2>
+          <h2>Snabbinfo</h2>
           <ul>
-            <li><strong>Namn:</strong> Jakob Daoud</li>
-            <li><strong>Yrke:</strong> Webbutvecklare</li>
-            <li><strong>Erfarenhet:</strong> 2+ år</li>
-            <li><strong>Favorit-språk:</strong> HTML, CSS, JavaScript, React</li>
+            <li>
+              <strong>Namn:</strong> Jakob Daoud
+            </li>
+            <li>
+              <strong>Fokus:</strong> Webb &amp; frontend
+            </li>
+            <li>
+              <strong>Språk:</strong> HTML, CSS, JavaScript, React
+            </li>
           </ul>
         </aside>
       </div>
 
       <footer>
-        <p>&copy; 2025 Mitt CV</p>
+        <p>&copy; {new Date().getFullYear()} Jakob Daoud</p>
       </footer>
     </div>
   );
-}
-
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
 }
 
 export default About;

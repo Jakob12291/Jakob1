@@ -1,0 +1,30 @@
+{
+  "education": [
+    {
+      "title": "Webbutveckling / programmering",
+      "institution": "Skola / högskola (fyll i ditt riktiga namn)",
+      "years": "20XX–20XX",
+      "details": "Kurser i webb, projektarbete och grundläggande backend."
+    },
+    {
+      "title": "Gymnasium",
+      "institution": "Skola (valfritt)",
+      "years": "20XX–20XX",
+      "details": ""
+    }
+  ],
+  "experience": [
+    {
+      "title": "Praktik / projekt / deltid",
+      "company": "Företag (fyll i)",
+      "years": "20XX–20XX",
+      "details": "Uppgifter inom webb, support eller annat relevant."
+    },
+    {
+      "title": "Övrigt",
+      "company": "Vid behov",
+      "years": "",
+      "details": ""
+    }
+  ]
+}

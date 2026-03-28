@@ -1,5 +1,5 @@
-import React from 'react';
-import '../assets/styles.css';
+import React from "react";
+import "../assets/styles.css";
 
 function Contact() {
   return (
@@ -11,15 +11,19 @@ function Contact() {
       <main>
         <section className="contactText">
           <h2>Kontakta mig</h2>
-          <p><strong>Du kan nå mig via e-post:</strong> <a href="mailto:example@example.com">example@example.com</a></p>
-          <p><strong>Tel Nr:</strong> 123456789</p>
+          <p>
+            <strong>E-post:</strong>{" "}
+            <a href="mailto:jakob@example.com">jakob@example.com</a>
+          </p>
+          <p>
+            <strong>Tel:</strong> 070-000 00 00
+          </p>
         </section>
       </main>
 
       <footer>
-        <p>&copy; 2025 Mitt CV</p>
+        <p>&copy; {new Date().getFullYear()} Jakob Daoud</p>
       </footer>
-      
     </div>
   );
 }

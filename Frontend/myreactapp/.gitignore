@@ -1,0 +1,7 @@
+# Dependencies & build (CI bygger om)
+node_modules/
+/build
+
+# Lokalt
+.env.local
+.DS_Store
